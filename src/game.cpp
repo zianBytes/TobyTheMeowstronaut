@@ -40,7 +40,7 @@ void Game::Draw() {
         DrawText("PRESS SPACE TO START", 230, 415, 25, Fade(BLACK, glowAlpha));
     }
     else if (currentState == PLAYING) {
-        // ✅ Only show the score when in PLAYING mode
+        // Only show the score when in PLAYING mode
         DrawText(TextFormat("Score: %d", score), 20, 20, 30, BLACK);
     }
 }
