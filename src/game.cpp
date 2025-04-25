@@ -17,14 +17,14 @@ void Game::Update() {
 }
 
 void Game::Draw() {
-    // ✅ Clear background differently for homepage and game screen
+    // Clear background differently for homepage and game screen
     if (currentState == HOMEPAGE) {
         ClearBackground(BLACK); // Homepage is completely black
     } else if (currentState == PLAYING) {
         ClearBackground((Color){186, 183, 231, 255}); // Light blue for gameplay
     }
 
-    // ✅ Glow Effect using sin() function (unchanged)
+    // Glow Effect using sin() function (unchanged)
     float glowAlpha = (sin(GetTime()*3.5) + 1) / 1;
 
     if (currentState == HOMEPAGE) {

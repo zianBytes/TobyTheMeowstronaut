@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_TobyTheMeowstronaut: phony || .
 
 build CMakeFiles/TobyTheMeowstronaut.dir/src/main.cpp.o: CXX_COMPILER__TobyTheMeowstronaut_unscanned_Debug /Users/zianmiad/CLionProjects/TobbyTheMeowstronaut/src/main.cpp || cmake_object_order_depends_target_TobyTheMeowstronaut
   DEP_FILE = CMakeFiles/TobyTheMeowstronaut.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -fcolor-diagnostics
+  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -mmacosx-version-min=15.3 -fcolor-diagnostics
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = CMakeFiles/TobyTheMeowstronaut.dir
   OBJECT_FILE_DIR = CMakeFiles/TobyTheMeowstronaut.dir/src
@@ -60,7 +60,7 @@ build CMakeFiles/TobyTheMeowstronaut.dir/src/main.cpp.o: CXX_COMPILER__TobyTheMe
 
 build CMakeFiles/TobyTheMeowstronaut.dir/src/game.cpp.o: CXX_COMPILER__TobyTheMeowstronaut_unscanned_Debug /Users/zianmiad/CLionProjects/TobbyTheMeowstronaut/src/game.cpp || cmake_object_order_depends_target_TobyTheMeowstronaut
   DEP_FILE = CMakeFiles/TobyTheMeowstronaut.dir/src/game.cpp.o.d
-  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -fcolor-diagnostics
+  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -mmacosx-version-min=15.3 -fcolor-diagnostics
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = CMakeFiles/TobyTheMeowstronaut.dir
   OBJECT_FILE_DIR = CMakeFiles/TobyTheMeowstronaut.dir/src
@@ -69,7 +69,7 @@ build CMakeFiles/TobyTheMeowstronaut.dir/src/game.cpp.o: CXX_COMPILER__TobyTheMe
 
 build CMakeFiles/TobyTheMeowstronaut.dir/src/player.cpp.o: CXX_COMPILER__TobyTheMeowstronaut_unscanned_Debug /Users/zianmiad/CLionProjects/TobbyTheMeowstronaut/src/player.cpp || cmake_object_order_depends_target_TobyTheMeowstronaut
   DEP_FILE = CMakeFiles/TobyTheMeowstronaut.dir/src/player.cpp.o.d
-  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1 -fcolor-diagnostics
+  FLAGS = -g -std=gnu++20 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -mmacosx-version-min=15.3 -fcolor-diagnostics
   INCLUDES = -I/usr/local/include
   OBJECT_DIR = CMakeFiles/TobyTheMeowstronaut.dir
   OBJECT_FILE_DIR = CMakeFiles/TobyTheMeowstronaut.dir/src
@@ -85,7 +85,7 @@ build CMakeFiles/TobyTheMeowstronaut.dir/src/player.cpp.o: CXX_COMPILER__TobyThe
 # Link the executable TobyTheMeowstronaut
 
 build TobyTheMeowstronaut: CXX_EXECUTABLE_LINKER__TobyTheMeowstronaut_Debug CMakeFiles/TobyTheMeowstronaut.dir/src/main.cpp.o CMakeFiles/TobyTheMeowstronaut.dir/src/game.cpp.o CMakeFiles/TobyTheMeowstronaut.dir/src/player.cpp.o | /usr/local/lib/libraylib.dylib
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=15.1
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk -mmacosx-version-min=15.3
   LINK_LIBRARIES = /usr/local/lib/libraylib.dylib
   OBJECT_DIR = CMakeFiles/TobyTheMeowstronaut.dir
   POST_BUILD = :
