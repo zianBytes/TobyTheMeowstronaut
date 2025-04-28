@@ -1,6 +1,3 @@
-//
-// Created by Zian Miad on 1/7/25.
-//
 
 #ifndef PLAYER_H
 #define PLAYER_H

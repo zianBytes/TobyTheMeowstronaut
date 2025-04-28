@@ -9,21 +9,16 @@
 #include "raylib.h"
 
 // Adding HomePage
-enum GameState {HOMEPAGE, PLAYING};
-
-// struct Star {
-//  Vector2 position;
-//  float speed;
-// };
+enum GameState {HOMEPAGE, PLAYING, PAUSED, YOUSUREVRO};
 
 class Game {
 private:
  Texture2D background;
  GameState currentState = HOMEPAGE;
- //Score Board:
- int score = 0;
- //Adding Stars and Other materials to the homepage:
-
+ // Original Plan was to have a scoreboard. I'm replacing it with a real time timer.
+ // Basically whoever can last longer in the game.
+ float survivalTime = 0.0f;
+ bool timerRunning = false;
 
 public:
  // Function prototype to store the game background.
@@ -32,11 +27,13 @@ public:
  void Draw();
  void Cleanup();
 
- void IncreaseScore();
 
- GameState GetState() {
-  return currentState;
- }
+
+ GameState GetState();
+ //
+ // float GetSurvivalTime() {
+ //  return survivalTime;
+ // }
 };
 
 
