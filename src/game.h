@@ -9,7 +9,7 @@
 #include "raylib.h"
 
 // Adding HomePage
-enum GameState {HOMEPAGE, PLAYING, PAUSED, YOUSUREVRO};
+enum GameState {HOMEPAGE, PLAYING, PAUSED, YOUSUREVRO, GAMEOVER};
 
 class Game {
 private:
@@ -26,6 +26,9 @@ public:
  void Update();
  void Draw();
  void Cleanup();
+ void SetGameOver();
+ void SetPlaying();
+ void SetHomepage();
 
  GameState GetState();
  //

@@ -56,6 +56,8 @@ void Game::Update() {
             survivalTime = 0.0f;
         }
     }
+        else if (currentState == GAMEOVER) {
+    }
 }
 
 void Game::Draw() {
@@ -75,7 +77,7 @@ void Game::Draw() {
         DrawText(" Toby The Meowstronaut", 135, 100, 40, RAYWHITE);
 
         // Instructions:
-        DrawText("Score up by not hitting the Asteroids", 210, 185, 20, LIGHTGRAY);
+        DrawText("Score up by not hitting the Obstacles", 210, 185, 20, LIGHTGRAY);
         DrawText("While in the Game", 335, 240, 18, GRAY );
         DrawText("Press P to Pause", 210, 270, 18, BLUE);
         DrawText("Press E to Exit", 460, 270, 18, RED);
@@ -101,6 +103,12 @@ void Game::Draw() {
         DrawText("Press E to Exit Vro", 280, 280, 25, RAYWHITE);
         DrawText("Press Space to Resume Vro", 230, 320, 25, RAYWHITE);
     }
+    else if (currentState == GAMEOVER) {
+        ClearBackground((Color){ 20, 20, 20, 255 });
+        DrawText("GAME OVER", 250, 200, 50, RED);
+        DrawText("Press R to Restart", 285, 300, 25, WHITE);
+        DrawText("Press E to Exit", 310, 350, 25, WHITE);
+    }
 }
 
 void Game::Cleanup() {
@@ -117,6 +125,23 @@ void Game::SetPaused() {
     currentState = PAUSED;
     timerRunning = false;
 }
+void Game::SetGameOver() {
+    currentState = GAMEOVER;
+    timerRunning = false;
+}
+void Game::SetPlaying() {
+    currentState = PLAYING;
+    survivalTime = 0.0f;
+    timerRunning = true;
+}
+
+void Game::SetHomepage() {
+    currentState = HOMEPAGE;
+    survivalTime = 0.0f;
+    timerRunning = false;
+}
+
+
 
 
 

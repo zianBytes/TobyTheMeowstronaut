@@ -47,8 +47,22 @@ int main() {
             Rectangle playerRect = player.GetCollisionRect();
             for (auto& obs : obstacles) {
                 if (CheckCollisionRecs(playerRect, obs.GetTopRect()) || CheckCollisionRecs(playerRect, obs.GetBottomRect())) {
-                    game.SetPaused(); // Collision happened!
+                    game.SetGameOver(); // Collision happened!
                 }
+            }
+        }
+        else if (game.GetState() == GAMEOVER) {
+            if (IsKeyPressed(KEY_R)) {
+                game.SetPlaying();
+                player.Init();
+                obstacles.clear();
+                spawnTimer = 0.0f;
+            }
+            else if (IsKeyPressed(KEY_E)) {
+                game.SetHomepage();
+                player.Init();
+                obstacles.clear();
+                spawnTimer = 0.0f;
             }
         }
 

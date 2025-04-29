@@ -65,10 +65,10 @@ Rectangle Player::GetCollisionRect() {
     float scaledHeight = frameHeight * 1.7f;
 
     Rectangle collisionBox;
-    collisionBox.x = position.x + 10; // Shrink hitbox inside
-    collisionBox.y = position.y + 10;
-    collisionBox.width = scaledWidth - 20; // Slightly smaller width
-    collisionBox.height = scaledHeight - 20; // Slightly smaller height
+    collisionBox.x = position.x + scaledWidth * 0.15f; // Narrow from sides
+    collisionBox.y = position.y + scaledHeight * 0.35f; // Push downward
+    collisionBox.width = scaledWidth * 0.7f; // Shrink width
+    collisionBox.height = scaledHeight * 0.4f; // Shrink height (only around ship body)
 
     return collisionBox;
 }
