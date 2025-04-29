@@ -8,8 +8,6 @@ void Player::Init() {
 
 void Player::Update() {
     // Handle movement
-    // if (IsKeyDown(KEY_RIGHT)) position.x += 5;
-    // if (IsKeyDown(KEY_LEFT)) position.x -= 5;
     if (IsKeyDown(KEY_UP)) position.y -= 8;
     if (IsKeyDown(KEY_DOWN)) position.y += 8;
 
@@ -57,4 +55,20 @@ void Player::Draw(GameState state) {
 
 void Player::Cleanup() {
     UnloadTexture(sprite);
+}
+
+Rectangle Player::GetCollisionRect() {
+    int frameWidth = sprite.width / totalFrames;
+    int frameHeight = sprite.height;
+
+    float scaledWidth = frameWidth * 1.7f;
+    float scaledHeight = frameHeight * 1.7f;
+
+    Rectangle collisionBox;
+    collisionBox.x = position.x + 10; // Shrink hitbox inside
+    collisionBox.y = position.y + 10;
+    collisionBox.width = scaledWidth - 20; // Slightly smaller width
+    collisionBox.height = scaledHeight - 20; // Slightly smaller height
+
+    return collisionBox;
 }

@@ -8,7 +8,9 @@ add_executable(TobyTheMeowstronaut src/main.cpp
         src/game.h
         src/game.cpp
         src/player.h
-        src/player.cpp)
+        src/player.cpp
+        src/obstacle.h
+        src/obstacle.cpp)
 
 # Find and Link Raylib (For macOS)
 find_package(raylib REQUIRED)

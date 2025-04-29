@@ -27,14 +27,12 @@ public:
  void Draw();
  void Cleanup();
 
-
-
  GameState GetState();
  //
- // float GetSurvivalTime() {
- //  return survivalTime;
- // }
+ float GetSurvivalTime();
+ void SetPaused();
 };
+
 
 
 #endif //GAME_H

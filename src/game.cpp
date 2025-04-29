@@ -45,12 +45,12 @@ void Game::Update() {
         }
     }
     else if (currentState == YOUSUREVRO) {
-        if(IsKeyPressed(KEY_E)) {
+        if(IsKeyPressed(KEY_SPACE)) {
             currentState = PLAYING;
             timerRunning = true;
             survivalTime = 0.0f;
         }
-        else if (IsKeyPressed(KEY_SPACE)) {
+        else if (IsKeyPressed(KEY_E)) {
             currentState = HOMEPAGE;
             timerRunning = false;
             survivalTime = 0.0f;
@@ -87,7 +87,7 @@ void Game::Draw() {
     }
     else if (currentState == PLAYING) {
         // Only show the score when in PLAYING mode
-        DrawText(TextFormat("Time: %d", (int)survivalTime), 20, 20, 30, BLACK);
+        DrawText(TextFormat("Score: %d", (int)survivalTime), 20, 20, 30, BLACK);
     }
     else if (currentState == PAUSED) {
         ClearBackground((Color){30, 30, 30, 255}); // Dark gray background when paused
@@ -110,5 +110,13 @@ void Game::Cleanup() {
 GameState Game::GetState() {
     return currentState;
 }
+float Game::GetSurvivalTime() {
+    return survivalTime;
+}
+void Game::SetPaused() {
+    currentState = PAUSED;
+    timerRunning = false;
+}
+
 
 

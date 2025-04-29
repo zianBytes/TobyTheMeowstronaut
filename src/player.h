@@ -19,6 +19,7 @@ public:
     void Update();
     void Draw(GameState state);
     void Cleanup();
+    Rectangle GetCollisionRect();
 };
 
 #endif //PLAYER_H
