@@ -4,9 +4,34 @@
 #include "obstacle.h"
 #include <vector> // To manage multiple obstacles
 
+// Adding music and Sound Effects
+// They're free and Non-Copyrighted
+Music lobbyMusic;
+Music gameplayMusic;
+Sound clickSound;
+Sound crashSound;
+Sound gameOverSound;
+Sound engineSound;
+bool isEnginePlaying = false;
+
+
 int main() {
     InitWindow(800, 600, "Toby The Meowstronaut");
+    InitAudioDevice();
     SetTargetFPS(60);
+
+    // Load Music:
+    lobbyMusic = LoadMusicStream("assets/lobby.mp3"); // HomePage (Lobby)
+    gameplayMusic = LoadMusicStream("assets/gamePage.mp3"); // GAME PAGE
+    // Load Sound Effects:
+    clickSound = LoadSound("assets/buttonPress.mp3");
+    crashSound = LoadSound("assets/crash.mp3");
+    gameOverSound = LoadSound("assets/gameOver.mp3");
+    engineSound = LoadSound("assets/SpaceCraft.mp3");
+
+    // Play Lobby Music when Game Starts:
+    PlayMusicStream(lobbyMusic);
+
 
     Game game;
     Player player;
@@ -19,7 +44,32 @@ int main() {
     player.Init();
 
     while (!WindowShouldClose()) {
+        UpdateMusicStream(lobbyMusic);
+        UpdateMusicStream(gameplayMusic);
+
         game.Update();
+
+        if (game.GetState()==HOMEPAGE) {
+            if (!IsMusicStreamPlaying(lobbyMusic)) {
+                PlayMusicStream(lobbyMusic);
+            }
+            StopMusicStream(gameplayMusic);
+            isEnginePlaying = false;
+        }
+        else if (game.GetState()==PLAYING) {
+            if(!IsMusicStreamPlaying(gameplayMusic)) {
+                PlayMusicStream(gameplayMusic);
+            }
+            StopMusicStream(lobbyMusic);
+
+            if(!isEnginePlaying) {
+                PlaySound(engineSound);
+                isEnginePlaying = true;
+            }
+            if(!IsSoundPlaying(engineSound)) {
+                PlaySound(engineSound);
+            }
+        }
 
         if (game.GetState() == PLAYING) {
             player.Update();
@@ -47,11 +97,17 @@ int main() {
             Rectangle playerRect = player.GetCollisionRect();
             for (auto& obs : obstacles) {
                 if (CheckCollisionRecs(playerRect, obs.GetTopRect()) || CheckCollisionRecs(playerRect, obs.GetBottomRect())) {
+                    PlaySound(crashSound);
                     game.SetGameOver(); // Collision happened!
+                    PlaySound(gameOverSound);
                 }
             }
         }
         else if (game.GetState() == GAMEOVER) {
+            if (isEnginePlaying) {
+                isEnginePlaying = false;
+                StopSound(engineSound);
+            }
             if (IsKeyPressed(KEY_R)) {
                 game.SetPlaying();
                 player.Init();
@@ -80,6 +136,13 @@ int main() {
 
         EndDrawing();
     }
+    UnloadMusicStream(lobbyMusic);
+    UnloadMusicStream(gameplayMusic);
+    UnloadSound(clickSound);
+    UnloadSound(crashSound);
+    UnloadSound(gameOverSound);
+    UnloadSound(engineSound);
+    CloseAudioDevice();
 
     player.Cleanup();
     game.Cleanup();
