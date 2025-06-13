@@ -12,6 +12,6 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Found raylib: /usr/local/Cellar/raylib/5.5/lib/libraylib.dylib
--- Configuring done (4.2s)
+-- Configuring done (6.6s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/zianmiad/CLionProjects/TobbyTheMeowstronaut
