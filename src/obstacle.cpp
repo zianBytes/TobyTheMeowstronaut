@@ -15,26 +15,31 @@ void Obstacle::Update() {
 
 void Obstacle::Draw() {
     // Gradient for Top Pillar
-    for (int i = 0; i < (int)topPillar.height; i += 5) {
-        float t = (float)i / (float)topPillar.height; // Gradient factor 0.0 to 1.0
+    int topHeight = (int)topPillar.height;
+    if (topHeight > 0 && topHeight < 600) {
+        for (int i = 0; i < topHeight; i += 5) {
+            float t = (float)i / topHeight;
+            unsigned char r = (unsigned char)(255 * (1.0f - t) + 180 * t);
+            unsigned char g = (unsigned char)(60 * (1.0f - t) + 20 * t);
+            unsigned char b = (unsigned char)(60 * (1.0f - t) + 40 * t);
 
-        unsigned char r = (unsigned char)(255 * (1.0f - t) + 180 * t);
-        unsigned char g = (unsigned char)(60 * (1.0f - t) + 20 * t);
-        unsigned char b = (unsigned char)(60 * (1.0f - t) + 40 * t);
-
-        DrawRectangle((int)topPillar.x, (int)i, (int)topPillar.width, 5, (Color){ r, g, b, 255 });
+            DrawRectangle((int)topPillar.x, (int)i, (int)topPillar.width, 5, (Color){ r, g, b, 255 });
+        }
     }
 
     // Gradient for Bottom Pillar
-    for (int i = 0; i < (int)bottomPillar.height; i += 5) {
-        float t = (float)i / (float)bottomPillar.height;
+    int bottomHeight = (int)bottomPillar.height;
+    if (bottomHeight > 0 && bottomHeight < 600) {
+        for (int i = 0; i < bottomHeight; i += 5) {
+            float t = (float)i / bottomHeight;
+            unsigned char r = (unsigned char)(255 * (1.0f - t) + 180 * t);
+            unsigned char g = (unsigned char)(60 * (1.0f - t) + 20 * t);
+            unsigned char b = (unsigned char)(60 * (1.0f - t) + 40 * t);
 
-        unsigned char r = (unsigned char)(255 * (1.0f - t) + 180 * t);
-        unsigned char g = (unsigned char)(60 * (1.0f - t) + 20 * t);
-        unsigned char b = (unsigned char)(60 * (1.0f - t) + 40 * t);
-
-        DrawRectangle((int)bottomPillar.x, (int)(bottomPillar.y + i), (int)bottomPillar.width, 5, (Color){ r, g, b, 255 });
+            DrawRectangle((int)bottomPillar.x, (int)(bottomPillar.y + i), (int)bottomPillar.width, 5, (Color){ r, g, b, 255 });
+        }
     }
+
 }
 
 

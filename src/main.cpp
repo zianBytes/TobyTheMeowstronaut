@@ -4,6 +4,8 @@
 #include "obstacle.h"
 #include <vector> // To manage multiple obstacles
 
+// Adding Manual shader:
+Shader webShader;
 // Adding music and Sound Effects
 // They're free and Non-Copyrighted
 Music lobbyMusic;
@@ -16,8 +18,17 @@ bool isEnginePlaying = false;
 
 
 int main() {
+    // Configuration Flags:
+    SetConfigFlags(FLAG_VSYNC_HINT);
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
+
     InitWindow(800, 600, "Toby The Meowstronaut");
     InitAudioDevice();
+
+    // Adding Shader
+    webShader = LoadShader("assets/shader_webgl.vs", "assets/shader_webgl.fs");
+
+
     SetTargetFPS(60);
 
     // Load Music:
@@ -123,6 +134,9 @@ int main() {
         }
 
         BeginDrawing();
+        // BeginShaderMode(webShader);
+
+        //Game Drawing Calls
         game.Draw();
 
         if (game.GetState() == PLAYING) {
@@ -133,7 +147,8 @@ int main() {
                 obs.Draw();
             }
         }
-
+        //
+        // EndShaderMode();
         EndDrawing();
     }
     UnloadMusicStream(lobbyMusic);
