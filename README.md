@@ -13,7 +13,7 @@
 
 ##  Play Now
  **[Click here to play Toby the Meowstronaut](https://zianbytes.github.io/ZB-GAMES/)** — instant browser play, no downloads needed!  
-*(Desktop & mobile browser friendly — headphones recommended for max vibes.)*
+*(Only browser friendly)*
 
 ---
 
